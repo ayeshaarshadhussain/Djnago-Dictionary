@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Word</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #eef2f3;
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+        }
+        .box {
+            background: white;
+            padding: 25px;
+            width: 350px;
+            border-radius: 10px;
+        }
+        input, textarea, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h2>➕ Add Word</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="word" placeholder="Word" required>
+        <textarea name="meaning" placeholder="Meaning" required></textarea>
+        <button type="submit">Save</button>
+    </form>
+
+    <a href="{% url 'home' %}">⬅ Back</a>
+</div>
+
+</body>
+</html>

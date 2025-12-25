@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dictionary</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f4f6f8;
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+        }
+        .box {
+            background: white;
+            padding: 25px;
+            width: 350px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #ccc;
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+        }
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h2>📘 Dictionary</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="word" placeholder="Enter word" required>
+        <button type="submit">Search</button>
+    </form>
+
+    {% if searched_word %}
+        <h3>Result:</h3>
+        {% if meaning.word %}
+            <p><b>{{ meaning.word }}</b>: {{ meaning.meaning }}</p>
+        {% else %}
+            <p>{{ meaning }}</p>
+        {% endif %}
+    {% endif %}
+
+    <a href="{% url 'add_word' %}">➕ Add New Word</a>
+</div>
+
+</body>
+</html>
