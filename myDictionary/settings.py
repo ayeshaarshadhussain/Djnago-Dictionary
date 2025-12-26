@@ -27,11 +27,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: don't run with debug turned on in production!
 #DEBUG = False
 
-ALLOWED_HOSTS = ['.vercel.app']
+ALLOWED_HOSTS = ['*']
+DEBUG = False
 
-CSRF_TRUSTED_ORIGINS = [
-    'https://*.vercel.app'
-]
 
 
 # Application definition
